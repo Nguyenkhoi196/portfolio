@@ -1,10 +1,15 @@
 <template>
-  <div class="containerabc">
+  <div class="containerabc dark:bg-primary">
     <div class="h-screen w-screen"></div>
     <div class="scroll flex w-[500%]">
-      <div class="scrolling-text fist whitespace-nowrap text-[100px]">Your Long Text Here</div>
-      <div class="scrolling-text second whitespace-nowrap text-[100px]">Your Long Text Here</div>
-      <div class="scrolling-text third whitespace-nowrap text-[100px]">Your Long Text Here</div>
+      <div class="scrolling-text fist whitespace-nowrap text-[100px]">
+        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
+        been the industry's standard dummy text ever since the 1500s, when an unknown printer took a
+        galley of type and scrambled it to make a type specimen book. It has survived not only five
+        centuries
+      </div>
+      <!-- <div class="scrolling-text second whitespace-nowrap text-[100px]">Your Long Text Here</div>
+      <div class="scrolling-text third whitespace-nowrap text-[100px]">Your Long Text Here</div> -->
     </div>
     <div class="h-screen"></div>
     <div class="h-screen"></div>
@@ -20,6 +25,9 @@ gsap.registerPlugin(ScrollTrigger)
 onMounted(() => {
   let sections = gsap.utils.toArray('.scrolling-text')
   console.log(sections)
+  const show = () => {
+    document.body.style.overflow = 'auto'
+  }
   const scrollTween = gsap
     .to(sections, {
       xPercent: -100 * sections.length,

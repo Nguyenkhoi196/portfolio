@@ -73,9 +73,4 @@ const dots = computed(() => {
 })
 </script>
 
-<style lang="scss">
-/* Add your styles here */
-.dot:hover ~ cursor {
-  @apply scale-150;
-}
-</style>
+<style lang="scss"></style>

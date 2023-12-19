@@ -1,92 +1,64 @@
 <template>
   <div>
-    <div class="h-screen"></div>
-    <!-- <div class="h-screen">
-      <div id="element" class="w-fit p-5 rounded bg-slate-800 relative">
-        <p class="text-center">element</p>
-      </div>
-    </div> -->
-    <div id="containera" class="element">
-      <div class="box">
-        <p>Your Content Goes Here</p>
-      </div>
-    </div>
-    <div class="box-1"><p>test</p></div>
-    <div class="h-screen"></div>
+    <h2>Linked List Component</h2>
+    <ul>
+      <li v-for="node in linkedList" :key="node.id">{{ node.data }}</li>
+    </ul>
   </div>
 </template>
 
-<script setup>
-import Lenis from '@studio-freight/lenis'
-import gsap from 'gsap'
-import { onMounted } from 'vue'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
-
-const lenis = new Lenis()
-gsap.registerPlugin(ScrollTrigger)
-
-function raf(time) {
-  lenis.raf(time)
-  requestAnimationFrame(raf)
-}
-
-const initGSAP = () => {
-  let tl = gsap.timeline({
-    scrollTrigger: {
-      trigger: '.element',
-      pin: '.box-1',
-      start: 'top 60%',
-      end: 'bottom 30%',
-      // toggleActions: 'restart none none none',
-      pinSpacing: true,
-      scrub: 0.5,
-      snap: {
-        snapTo: 'labels',
-        duration: { min: 0.1, max: 1 },
-        delay: 0.1,
-        ease: 'none'
-      },
-      markers: true
+<script>
+export default {
+  data() {
+    return {
+      linkedList: null
     }
-  })
+  },
+  mounted() {
+    // Khởi tạo linked list
+    this.linkedList = this.createLinkedList()
 
-  tl.addLabel('start')
-    .from('.box p', { scale: 0.3, rotation: 45, autoAlpha: 0 })
-    .addLabel('color')
-    .from('.box', { backgroundColor: '#28a92b' })
-    .addLabel('spin')
-    .to('.box', { rotation: 360 })
-    .addLabel('end')
-    .to('.box')
+    // Thêm một số phần tử vào linked list để minh họa
+    this.linkedList.add(1)
+    // this.linkedList.add(2)
+    // this.linkedList.add(3)
+  },
+  methods: {
+    // Hàm tạo linked list
+    createLinkedList() {
+      class Node {
+        constructor(data) {
+          this.data = data
+          this.next = null
+        }
+      }
+
+      class LinkedList {
+        constructor() {
+          this.head = null
+        }
+
+        add(data) {
+          const newNode = new Node(data)
+          // console.log(newNode)
+          if (!this.head) {
+            this.head = newNode
+          } else {
+            let current = this.head
+            while (current.next) {
+              current = current.next
+            }
+            current.next = newNode
+          }
+        }
+      }
+
+      return new LinkedList()
+    }
+  }
 }
-
-onMounted(initGSAP)
-requestAnimationFrame(raf)
 </script>
 
-<style scoped lang="scss">
-.container {
-  height: 200vh;
-}
-
-.box {
-  width: 100px;
-  height: 100px;
-  background-color: #ff5733;
-  // margin: 50vh auto;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: white;
-}
-.box-1 {
-  width: 100px;
-  height: 100px;
-  background-color: green;
-  // margin: 50vh auto;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: white;
-}
+<style scoped>
+/* Thêm các kiểu CSS nếu cần */
 </style>

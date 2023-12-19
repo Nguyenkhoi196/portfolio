@@ -11,7 +11,7 @@
           class="circle blur lg:block w-[300px] h-[300px] top-2/3 -right-[200px] bg-tertiary/20 rounded-full absolute"
         ></div>
       </div>
-      <div class="flex flex-col md:flex-row md:h-screen gap-10 py-5 px-10">
+      <div class="flex flex-col md:flex-row md:h-[calc(100vh-64px)] gap-10 py-5 px-10">
         <div class="flex flex-col gap-5 justify-center grow">
           <div
             class="lg:w-24 lg:h-24 w-16 h-16 rounded-full border-dark dark:border-white border-2 hover:z-10 hover:scale-150 ease-in-out duration-100 brightness-150"
@@ -99,25 +99,50 @@
       <div class="grid grid-flow-row md:grid-flow-col px-10 py-20">
         <div class="flex flex-col gap-5">
           <h2 class="text-2xl text-dark dark:text-tertiary">Skill</h2>
+          <hr class="w-20" />
           <div>
-            <h4>Front-end :</h4>
+            <h4 class="font-medium">Front-end :</h4>
             <p>HTML, CSS, VueJs, NuxtJs, Bootstrap, TailWindCss</p>
           </div>
           <div>
-            <h4>Back-end :</h4>
-            <p>Strapi, Restful API, Socket.io</p>
+            <h4 class="font-medium">Back-end :</h4>
+            <p>Strapi, RestfulAPI, Socket.io</p>
           </div>
           <div>
-            <h4>Database :</h4>
+            <h4 class="font-medium">Database :</h4>
             <p>PostgresQL</p>
           </div>
           <div>
-            <h4>Other :</h4>
-            <p>Javascript, Typescript, Git, Github, Jira/Scrum</p>
+            <h4 class="font-medium">Other :</h4>
+            <p>Typescript, Git, Github, Jira/Scrum, Figma, Postman</p>
+          </div>
+          <div>
+            <h4 class="font-medium">English :</h4>
+            <p>
+              TOEIC certificate ;<br />
+              Can read and understand English documents
+            </p>
           </div>
         </div>
-        <div>
+        <div class="flex flex-col gap-5">
           <h2 class="text-2xl text-dark dark:text-tertiary">My Experience</h2>
+          <hr class="w-20" />
+          <div>
+            <div class="flex flex-col pt-2 gap-2">
+              <div class="p-2 px-3 rounded bg-primary/50 dark:bg-tertiary/50 w-fit">
+                2/2023 - Now
+              </div>
+              <h4>VNELEARNING TECHNOLOGY SOLUTIONS JOINT STOCK COMPANY</h4>
+              <h3 class="text-base font-medium">Front-end Developer</h3>
+              <p>Participating projects :</p>
+              <p class="list-inside list-item">Hoola HomePage</p>
+              <p>
+                Convert from design file to responsitive website interface. <br />Collaborate with
+                other departments to create ideas and contents for each page.<br />Learn the
+                company's products and workflow.
+              </p>
+            </div>
+          </div>
         </div>
       </div>
     </div>

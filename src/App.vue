@@ -1,15 +1,17 @@
 <template>
-  <div>
-    <nav-bar @change-mode="toggleDark" :isDark="isDark" />
-    <router-view class="pt-16" />
-  </div>
+  <component :is="layout">
+    <router-view />
+  </component>
 </template>
 
 <script setup>
-import navBar from './components/navBar.vue'
-import { useDark, useToggle } from '@vueuse/core'
-const isDark = useDark()
-const toggleDark = useToggle(isDark)
+import { computed } from 'vue'
+import { useRoute } from 'vue-router'
+import { PUBLIC_LAYOUT } from '@/constants'
+
+const route = useRoute()
+const layout = computed(() => (route.meta.layout || PUBLIC_LAYOUT) + '-layout')
+console.log(layout.value)
 </script>
 
 <style scoped></style>

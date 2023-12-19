@@ -1,30 +1,25 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import Home from '@/views/homePage.vue'
-import LearnAnime from '@/views/learnAnime.vue'
-import NotFound from '@/views/notFound.vue'
-import cursorPage from '@/views/cursorPage.vue'
 
 const routes = [
   {
     path: '/',
     name: 'Home',
-    component: Home
+    component: () => import(/* webpackChunkName:"home" */ '../views/HomePage.vue')
   },
   {
     path: '/learn-anime',
-    name: 'learnAnime',
-    component: LearnAnime
+    name: 'LearnAnime',
+    component: () => import(/* webpackChunkName:"learnAnime" */ '../views/LearnAnime.vue')
   },
   {
     path: '/cursor',
-    name: 'cursorPage',
-    component: cursorPage
+    name: 'CursorPage',
+    component: () => import(/* webpackChunkName:"cursorPage" */ '../views/CursorPage.vue')
   },
-
   {
     path: '/404',
     name: 'NotFound',
-    component: NotFound
+    component: () => import(/* webpackChunkName:"404" */ '../views/NotFound.vue')
   },
   // Redirect to 404 if no matching route is found
   {
