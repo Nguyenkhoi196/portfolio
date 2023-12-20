@@ -1,52 +1,5 @@
 <template>
   <div class="dark:bg-primary overflow-hidden">
-    <div class="container mx-auto relative">
-      <div class="circle-group">
-        <div
-          ref="circleRef1"
-          class="circle blur-md w-[500px] bottom-[600px] -right-[150px] h-[500px] lg:w-[900px] lg:h-[900px] lg:-top-1/3 lg:left-1/2 bg-slate-200/20 rounded-full absolute"
-        ></div>
-        <div
-          ref="circleRef2"
-          class="circle blur lg:block w-[300px] h-[300px] top-2/3 -right-[200px] bg-tertiary/20 rounded-full absolute"
-        ></div>
-      </div>
-      <div class="flex flex-col md:flex-row md:h-[calc(100vh-64px)] gap-10 py-5 px-10">
-        <div class="flex flex-col gap-5 justify-center grow">
-          <div
-            class="lg:w-24 lg:h-24 w-16 h-16 rounded-full border-dark dark:border-white border-2 hover:z-10 hover:scale-150 ease-in-out duration-100 brightness-150"
-          >
-            <img src="../assets/avatar.png" class="rounded-full" alt="" />
-          </div>
-          <div class="flex flex-col gap-3">
-            <p class="text-lg text-tertiary">Hello, My name is</p>
-
-            <hr class="w-20" />
-          </div>
-          <h2 class="text-5xl md:text-7xl font-bold mb-4 text-dark">Khoi Nguyen</h2>
-          <div id="quote" class="text-2xl md:text-4xl text-tertiary">
-            <p>
-              _
-              <span id="text" class="font-space-mono"></span>
-            </p>
-          </div>
-          <div class="text-dark text-base">
-            <p>
-              <i class="bx bx-envelope"></i>
-              <span class="align-center pl-1"> nguyenkhoi196@gmail.com </span>
-            </p>
-            <p>
-              <i ref="phone" class="bx bxs-phone"></i>
-              <span class="align-center pl-1"> (+84) 858692372 </span>
-            </p>
-          </div>
-          <!-- <grid-wave :width="30" :height="30" class="absolute" /> -->
-        </div>
-        <div class="overflow-hidden min-w-[30%] w-auto self-center">
-          <grid-wave :width="30" :height="30" />
-        </div>
-      </div>
-    </div>
     <div id="about" class="container mx-auto">
       <div class="flex flex-col py-20 px-10">
         <div class="flex-col flex gap-3">
@@ -149,39 +102,6 @@
   </div>
 </template>
 
-<script setup>
-import gridWave from '@/components/gridWave.vue'
-import { onMounted, ref } from 'vue'
-import gsap from 'gsap'
-import TextPlugin from 'gsap/TextPlugin'
-import anime from 'animejs'
-const phone = ref(null)
-onMounted(() => {
-  tl.to('#quote #text', {
-    duration: 3,
-    text: {
-      value: 'web developer'
-    }
-  })
-  anime({
-    targets: phone.value,
-    rotate: [
-      { value: '+=15deg', duration: 200 },
-      { value: '-=15deg', duration: 200 },
-      { value: '+=15deg', duration: 200 },
-      { value: '-=15deg', duration: 200 },
-      { value: '+=15deg', duration: 200 },
-      { value: '-=15deg', duration: 200 },
-      { value: '0', duration: 1500 }
-    ],
-
-    easing: 'linear',
-    loop: true
-  })
-})
-gsap.registerPlugin(TextPlugin)
-gsap.defaults({ ease: 'none' })
-const tl = gsap.timeline({ repeat: -1, yoyo: true })
-</script>
+<script setup></script>
 
 <style lang="scss" scoped></style>
