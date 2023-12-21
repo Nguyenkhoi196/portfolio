@@ -8,7 +8,7 @@
 </template>
 
 <script setup>
-import navBar from '@/components/navBar.vue'
+import navBar from '@/components/NavBar.vue'
 </script>
 
 <style lang="scss" scoped></style>

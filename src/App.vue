@@ -1,8 +1,6 @@
 <template>
   <component :is="layout">
-    <transition name="fade">
-      <router-view />
-    </transition>
+    <router-view />
   </component>
 </template>
 
@@ -17,13 +15,4 @@ console.log(layout.value)
 provide('message', 'hello world')
 </script>
 
-<style scoped>
-.fade-enter-active,
-.fade-leave-active {
-  transition: all 0s cubic-bezier(1, 0.5, 0.8, 1);
-}
-.fade-enter,
-.fade-leave-to {
-  opacity: 0;
-}
-</style>
+<style scoped></style>

@@ -7,12 +7,12 @@
         class="screen relative text-dark dark:text-primary font-extrabold lg:text-9xl md:text-7xl gap-5 text-5xl leading-[60px] flex flex-col"
       >
         <span
-          class="overlay-title hover:text-tertiary transition-all hover:cursor-zoom-in duration-500"
-          >Khoi Nguyen</span
+          class="overlay-title py-2 text-wrapper overflow-hidden hover:text-tertiary transition-all hover:cursor-zoom-in duration-500"
+          ><span class="letters"> Khoi Nguyen </span></span
         >
         <span
-          class="overlay-title hover:text-secondary transition-all hover:cursor-zoom-in duration-500"
-          >Portfolio</span
+          class="overlay-title overflow-hidden hover:text-secondary transition-all hover:cursor-zoom-in duration-500"
+          ><span class="letters">Portfolio</span></span
         >
       </p>
       <div class="intro">
@@ -181,8 +181,9 @@
 <script setup>
 import GridWave from '../components/GridWave.vue'
 import { onMounted, ref } from 'vue'
-import gsap from 'gsap'
-import TextPlugin from 'gsap/TextPlugin'
+import gsap from 'gsap-trial'
+import TextPlugin from 'gsap-trial/TextPlugin'
+import SplitText from 'gsap-trial/SplitText'
 import anime from 'animejs'
 const phone = ref(null)
 const timeline = gsap.timeline()
@@ -219,7 +220,7 @@ const fadeOut = () => {
   })
 }
 
-const reverse = () => timeline.reverse()
+// const reverse = () => timeline.reverse()
 onMounted(() => {
   tl.to('#quote #text', {
     duration: 3,
@@ -284,9 +285,22 @@ onMounted(() => {
     element.addEventListener('mouseover', onMouseHover)
     element.addEventListener('mouseout', onMouseHoverOut)
   })
+  const splitTexta = new SplitText('.letters', { type: 'chars' })
+  gsap.from(splitTexta.chars, {
+    duration: 0.5,
+    y: 200,
+    ease: 'back.out',
+    stagger: 0.05
+  })
+  anime({
+    targets: '.explore',
+    translateY: -20,
+    duration: 300,
+    direction: 'alternate'
+  })
 })
 
-gsap.registerPlugin(TextPlugin)
+gsap.registerPlugin(TextPlugin, SplitText)
 gsap.defaults({ ease: 'none' })
 const tl = gsap.timeline({ repeat: -1, yoyo: true })
 </script>

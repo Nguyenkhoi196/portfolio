@@ -51,7 +51,6 @@ onMounted(() => {
         trigger: '.' + triggerClass,
         containerAnimation: scrollTween,
         start: 'center center',
-
         end: 'bottom bottom',
         markers: true,
         onToggle: (self) =>
@@ -63,6 +62,6 @@ onMounted(() => {
 
 <style lang="scss" scoped>
 .scrolling-text {
-  white-space: nowrap; /* Ngăn chặn text xuống dòng */
+  white-space: nowrap;
 }
 </style>
