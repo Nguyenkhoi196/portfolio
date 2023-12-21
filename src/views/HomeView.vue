@@ -180,7 +180,7 @@
 </template>
 
 <script setup>
-import GridWave from '../components/GridWave.vue'
+import GridWave from '@/components/GridWave.vue'
 import { onMounted, ref } from 'vue'
 import gsap from 'gsap-trial'
 import TextPlugin from 'gsap-trial/TextPlugin'
