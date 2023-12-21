@@ -1,6 +1,7 @@
 <template>
   <div class="dark:bg-primary overflow-hidden">
     <div
+      id="overlay"
       class="overlay bg-white dark:bg-dark items-center justify-center fixed top-0 z-10 h-screen w-screen inset-0 center flex flex-col md:flex-row gap-5 lg:gap-10"
     >
       <p

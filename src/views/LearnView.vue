@@ -17,23 +17,14 @@ onMounted(() => {
   textWrapper.innerHTML = textWrapper.textContent.replace(/\S/g, "<p class='letter'>$&</p>")
 })
 const animateText = () => {
-  anime
-    .timeline()
-    .add({
-      targets: '.letter',
+  anime.timeline().add({
+    targets: '.letter',
 
-      translateY: ['1.1em', 0],
-      translateZ: 0,
-      duration: 750,
-      delay: (el, i) => 50 * i
-    })
-    .add({
-      targets: '.text-wrapper',
-      opacity: 1,
-      duration: 1000,
-      easing: 'easeOutExpo',
-      delay: 1000
-    })
+    translateY: ['1.1em', 0],
+    translateZ: 0,
+    // duration: 500,
+    delay: anime.stagger(50)
+  })
 }
 </script>
 

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <nav-bar />
+    <menu-navbar />
     <div class="pt-16">
       <slot></slot>
     </div>
@@ -8,7 +8,7 @@
 </template>
 
 <script setup>
-import navBar from '@/components/NavBar.vue'
+import MenuNavbar from '@/components/MenuNavbar.vue'
 </script>
 
 <style lang="scss" scoped></style>
