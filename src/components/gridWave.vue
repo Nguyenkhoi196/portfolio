@@ -14,7 +14,7 @@
         <div
           class="dot-point h-1 w-1 rounded-full bg-gradient-to-b from-secondary to-blue-200 opacity-50 group-hover:from-indigo-600 group-hover:to-white"
           :data-index="dot.index"
-        />
+        ></div>
       </div>
     </div>
   </div>
